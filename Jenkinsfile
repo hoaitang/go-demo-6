@@ -46,7 +46,7 @@ pipeline {
 
             // ensure we're not on a detached head
             echo "----------------git checkout master"
-            sh "git checkout master"
+            //sh "git checkout master"
             echo "git config --global credential.helper store"
             sh "git config --global credential.helper store"
             echo "jx step git credentials"
