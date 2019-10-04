@@ -48,7 +48,7 @@ pipeline {
             echo "----------------git checkout master"
             //sh "git checkout master"
             echo "git config --global credential.helper store"
-            sh "git config --global credential.helper store"
+            //sh "git config --global credential.helper store"
             echo "jx step git credentials"
             sh "jx step git credentials"
 
