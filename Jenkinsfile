@@ -40,11 +40,16 @@ pipeline {
       steps {
         container('go') {
           dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6') {
+
+            echo "----------------checkout scm"
             checkout scm
 
             // ensure we're not on a detached head
+            echo "----------------git checkout master"
             sh "git checkout master"
+            echo "git config --global credential.helper store"
             sh "git config --global credential.helper store"
+            echo "jx step git credentials"
             sh "jx step git credentials"
 
             // so we can retrieve the version in later steps
