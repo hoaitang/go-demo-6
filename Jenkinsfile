@@ -64,7 +64,7 @@ pipeline {
       steps {
         container('go') {
           //dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6/charts/go-demo-6') {
-            dir("${pwd()}/charts/z-go-demo-6"){
+            dir("${pwd()}/charts/go-demo-6"){
               sh "jx step changelog --version v\$(cat ../../VERSION)"
 
               // release the helm chart
