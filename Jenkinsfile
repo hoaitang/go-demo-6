@@ -39,7 +39,7 @@ pipeline {
       }
       steps {
         container('go') {
-          dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6') {
+          //dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6') {
             checkout scm
 
             // ensure we're not on a detached head
@@ -53,7 +53,7 @@ pipeline {
             sh "make build"
             sh "export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml"
             sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
-          }
+          //}
         }
       }
     }
@@ -63,15 +63,17 @@ pipeline {
       }
       steps {
         container('go') {
-          dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6/charts/go-demo-6') {
-            sh "jx step changelog --version v\$(cat ../../VERSION)"
+          //dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6/charts/go-demo-6') {
+            dir("${pwd()}/charts/z-go-demo-6"){
+              sh "jx step changelog --version v\$(cat ../../VERSION)"
 
-            // release the helm chart
-            sh "jx step helm release"
+              // release the helm chart
+              sh "jx step helm release"
 
-            // promote through all 'Auto' promotion Environments
-            sh "jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)"
-          }
+              // promote through all 'Auto' promotion Environments
+              sh "jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)"
+            }
+          //}
         }
       }
     }
