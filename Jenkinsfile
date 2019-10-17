@@ -40,7 +40,7 @@ pipeline {
       steps {
         container('go') {
           //dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6') {
-            echo "${pwd()}"
+            echo "pwd: ${pwd()} "
             checkout scm
 
             // ensure we're not on a detached head 
