@@ -20,13 +20,15 @@ pipeline {
       }
       steps {
         container('go') {
-          dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6') {
+          dir("${pwd()}/charts/go-demo-6"){ 
+          //dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6') {
             checkout scm
             sh "make linux"
             sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
             sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
           }
-          dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6/charts/preview') {
+          dir("${pwd()}/charts/go-demo-6/charts/preview"){ 
+          //dir('/home/jenkins/go/src/github.com/hoaitang/go-demo-6/charts/preview') {
             sh "make preview"
             sh "jx preview --app $APP_NAME --dir ../.."
           }
