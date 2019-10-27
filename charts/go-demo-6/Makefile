@@ -3,6 +3,7 @@ CURRENT=$(pwd)
 NAME := go-demo-6
 OS := $(shell uname)
 VERSION := $(shell cat ../../VERSION)
+USERNAME := hoaitang
 
 build: clean
 	rm -rf requirements.lock
@@ -36,7 +37,7 @@ ifeq ($(OS),Darwin)
 	sed -i "" -e "s/tag:.*/tag: $(VERSION)/" values.yaml
 else ifeq ($(OS),Linux)
 	sed -i -e "s/version:.*/version: $(VERSION)/" Chart.yaml
-	sed -i -e "s|repository:.*|repository: $(DOCKER_REGISTRY)\/vfarcic\/$(NAME)|" values.yaml
+	sed -i -e "s|repository:.*|repository: $(DOCKER_REGISTRY)\/$(USERNAME)\/$(NAME)|" values.yaml
 	sed -i -e "s/tag:.*/tag: $(VERSION)/" values.yaml
 else
 	echo "platfrom $(OS) not supported to tag with"
