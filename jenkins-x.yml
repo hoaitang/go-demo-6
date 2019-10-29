@@ -1,17 +1,19 @@
 buildPack: go
 dockerRegistryOwner: hoaitang
 pipelineConfig:
-  # This is new
   env:
+  # This was modified
   - name: CODECOV_TOKEN
-    value: "2ec3d739-7838-4518-b6ab-0fc3aa6db84c"
+    valueFrom:
+      secretKeyRef:
+        key: token
+        name: codecov
   pipelines:
     pullRequest:
       build:
         preSteps:
         - name: unit-tests
           command: make unittest
-        # This is new
         - name: code-coverage
           command: codecov.sh
           agent:
