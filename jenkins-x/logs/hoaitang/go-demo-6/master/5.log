@@ -1,0 +1,21 @@
+
+Showing logs for build [32mhoaitang-go-demo-6-master-relea-wr8xj-5[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-jzq6g[0m
+{"level":"warn","ts":1572419046.6058757,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572419046.6062753,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mhoaitang-go-demo-6-master-relea-wr8xj-5[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-blbgd[0m
+{"level":"warn","ts":1572419047.6288354,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1572419047.630469,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+
+Showing logs for build [32mhoaitang-go-demo-6-master-relea-wr8xj-5[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mhoaitang-go-demo-6-master-relea-wr8xj-5[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-hoaitang-go-demo-6-master-relea-9dpx6[0m
+{"level":"warn","ts":1572419052.6621578,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1572419053.1637528,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/********/go-demo-6.git @ v2.0.6 in path /workspace/source"}
+
+Showing logs for build [32mhoaitang-go-demo-6-master-relea-wr8xj-5[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:b503adbf83702be93ec5ebacab84467951fc5c8e
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mhoaitang-go-demo-6-master-relea-wr8xj-5[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
